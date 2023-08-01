@@ -1,14 +1,9 @@
-import { Box, Button, Stack } from '@mui/material';
-import { useState } from 'react';
-import { Container } from '~components/atoms/Container';
-import { PaymentStepByStep } from '~components/molecules';
-import { CompletedPayment } from '~components/molecules/checkout/CompletedPayment';
+import { Button, Stack } from '@mui/material';
 import { sha256 } from 'js-sha256';
 
 export const CheckoutPage = () => {
-  const [isCompleted, setIsCompleted] = useState(false);
   const payment = () => {
-    const hash = sha256('');
+    const hash = sha256(crypto.randomUUID());
     const time = new Date();
 
     window.open(
@@ -17,14 +12,8 @@ export const CheckoutPage = () => {
   };
 
   return (
-    <Container pt={'100px'} pb={'73px'}>
-      <Stack direction={'row'} gap={'57px'}>
-        <Box width={'50%'}>
-          <PaymentStepByStep isCompleted={isCompleted} onCompleted={() => setIsCompleted(true)} />
-        </Box>
-        <Box width={'50%'}>{isCompleted && <CompletedPayment />}</Box>
-        <Button onClick={payment}>Payment here!</Button>
-      </Stack>
-    </Container>
+    <Stack direction={'row'} gap={'57px'}>
+      <Button onClick={payment}>Payment here!</Button>
+    </Stack>
   );
 };
