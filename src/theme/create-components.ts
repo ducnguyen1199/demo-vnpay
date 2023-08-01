@@ -1,5 +1,4 @@
 import { oswaldFont } from '.';
-import { convertToRem } from '~utils/convertToRem';
 import { colors } from './colors';
 import { ThemeOptions } from '@mui/material';
 
@@ -24,8 +23,8 @@ export const createComponents = (): ThemeOptions['components'] => {
         {
           props: { variant: 'square' },
           style: {
-            padding: `${convertToRem(9)} ${convertToRem(40)}`,
-            fontSize: convertToRem(16),
+            padding: `${9} ${40}`,
+            fontSize: 16,
             fontWeight: 300,
             lineHeight: 'normal',
             fontFamily: oswaldFont.style.fontFamily,
@@ -37,8 +36,8 @@ export const createComponents = (): ThemeOptions['components'] => {
         {
           props: { variant: 'square-outlined' },
           style: {
-            padding: `${convertToRem(16)} ${convertToRem(53)}`,
-            fontSize: convertToRem(13),
+            padding: `${16} ${53}`,
+            fontSize: 13,
             fontWeight: 400,
             lineHeight: 'normal',
             letterSpacing: '0.65px',
